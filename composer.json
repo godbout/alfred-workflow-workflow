@@ -6,7 +6,7 @@
         "workflow",
         "php"
     ],
-    "homepage": "https://github.com/godbout/alfred-workflow-scriptfilter",
+    "homepage": "https://github.com/godbout/alfred-workflow-workflow",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -17,15 +17,21 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.2",
+        "godbout/alfred-workflow-scriptfilter": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5",
-        "codedungeon/phpunit-result-printer": "^0.25.0"
+        "phpunit/phpunit": "^8.5",
+        "codedungeon/phpunit-result-printer": "^0.27.0"
     },
     "autoload": {
         "psr-4": {
             "Godbout\\Alfred\\Workflow\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "scripts": {

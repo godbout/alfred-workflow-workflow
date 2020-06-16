@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase as BaseTestCase;
 use Tests\DummyWorkflow;
+use PHPUnit\Framework\TestCase;
 
-class BaseWorkflowTest extends BaseTestCase
+class BaseWorkflowTest extends TestCase
 {
     /** @test */
     public function it_is_a_singleton()

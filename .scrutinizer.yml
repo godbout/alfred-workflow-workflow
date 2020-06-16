@@ -10,7 +10,7 @@ build:
     coverage:
       tests:
         override:
-          - command: ./vendor/bin/phpunit --coverage-clover build/coverage.xml
+          - command: ./vendor/bin/phpunit --colors=always --coverage-clover build/coverage.xml
             coverage:
               file: build/coverage.xml
               format: clover

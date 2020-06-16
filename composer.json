@@ -1,9 +1,10 @@
 {
     "name": "godbout/alfred-workflow-workflow",
-    "description": "not sure yet.",
+    "description": "Takes care of all the Alfred glue for you so that you need to code only what is specific to your Workflow.",
     "keywords": [
         "alfred",
         "workflow",
+        "template",
         "php"
     ],
     "homepage": "https://github.com/godbout/alfred-workflow-workflow",
@@ -11,9 +12,9 @@
     "type": "library",
     "authors": [
         {
-            "name": "Guill Lo",
+            "name": "Guillaume Leclerc",
             "email": "guill@sleeplessmind.com.mo",
-            "role": "Developer"
+            "role": "main craftsman"
         }
     ],
     "require": {

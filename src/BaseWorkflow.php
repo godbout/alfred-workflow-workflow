@@ -7,11 +7,11 @@ use Godbout\Alfred\Workflow\Contracts\Workflow;
 
 abstract class BaseWorkflow implements Workflow
 {
-    private static $instance = null;
-    private $scriptFilter = null;
+    protected static $instance = null;
+    protected $scriptFilter = null;
 
 
-    final protected function __construct()
+    protected function __construct()
     {
         $this->scriptFilter = ScriptFilter::create();
     }
@@ -66,7 +66,7 @@ abstract class BaseWorkflow implements Workflow
         return "$action is done!";
     }
 
-    final public static function destroy()
+    public static function destroy()
     {
         ScriptFilter::destroy();
 

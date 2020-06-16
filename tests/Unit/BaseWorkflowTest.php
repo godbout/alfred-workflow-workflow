@@ -17,6 +17,16 @@ class BaseWorkflowTest extends BaseTestCase
     }
 
     /** @test */
+    public function it_cannot_be_cloned()
+    {
+        $this->expectException(\Error::class);
+
+        $workflow = DummyWorkflow::getInstance();
+
+        $newWorkflow = clone $workflow;
+    }
+
+    /** @test */
     public function it_can_be_destroyed()
     {
         $firstInstance = DummyWorkflow::getInstance();

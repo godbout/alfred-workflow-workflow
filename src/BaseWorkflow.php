@@ -34,7 +34,7 @@ abstract class BaseWorkflow implements Workflow
 
     private static function getCurrentMenuClass()
     {
-        $menu = static::getMenuClassName(getenv('action')) ?: 'Entrance';
+        $menu = static::getMenuClassName(getenv('next')) ?: 'Entrance';
 
         return (new ReflectionClass(static::class))->getNamespaceName() . "\\Menus\\" . $menu;
     }
@@ -46,7 +46,7 @@ abstract class BaseWorkflow implements Workflow
 
     public static function do()
     {
-        $action = getenv('workflow_action');
+        $action = getenv('action');
 
         if (method_exists(static::class, $action)) {
             return static::$action();
@@ -57,7 +57,7 @@ abstract class BaseWorkflow implements Workflow
 
     public static function notify($result = false)
     {
-        $action = getenv('workflow_action');
+        $action = getenv('action');
 
         if ($result === false) {
             return "Oops... cannot $action.";

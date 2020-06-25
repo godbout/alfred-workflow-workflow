@@ -25,7 +25,7 @@ class BaseWorkflowTest extends TestCase
     /** @test */
     public function it_calls_the_Workflow_method_passed_in_variable_if_exists()
     {
-        putenv('workflow_action=returnTrue');
+        putenv('action=returnTrue');
 
         $this->assertTrue(DummyWorkflow::do());
     }
@@ -33,7 +33,7 @@ class BaseWorkflowTest extends TestCase
     /** @test */
     public function it_can_notify_the_grand_public()
     {
-        putenv('workflow_action=returnTrue');
+        putenv('action=returnTrue');
 
         $this->assertEquals(
             'Oops... cannot returnTrue.',

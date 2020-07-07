@@ -26,7 +26,7 @@ which means, why typing over and over those same stuff over and over. I say stop
 
 ## BUT WTF IS THAT, REALLY
 
-Basically it's a set of base classes and some conventions and an Alfred Workflow skeleton to get you up in no time. Follow the conventions and all you have to do is create your Menus, and your Actions. All the boring rest is handled by the skeleton, and this package. The common glue is taken care of. You focus only on the specificity of your Workflow.
+Basically it's a set of base classes and some conventions and an Alfred Workflow Skeleton to get you up in no time. Follow the conventions and all you have to do is create your Menus, and your Actions. All the boring rest is handled by the Skeleton, and this package. The common glue is taken care of. You focus only on the specificity of your Workflow.
 
 ## Installation
 

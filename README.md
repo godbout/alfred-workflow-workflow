@@ -52,5 +52,5 @@ Well this is where it gets interesting, because i'm still not sure how to expres
 * [Alfred Kat](https://github.com/godbout/alfred-kat)
 * [Alfred Ploi](https://github.com/godbout/alfred-ploi)
 
-Sorry 🥺️🥺️🥺️ more late, promise. Till then you can contact me if you need more details.
+Sorry 🥺️🥺️🥺️ more later, promise. Till then you can contact me if you need more details.
 

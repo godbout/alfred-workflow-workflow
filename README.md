@@ -48,9 +48,9 @@ use Godbout\Alfred\Workflow\Workflow;
 
 Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to check the Alfred Workflows that are using this repo:
 
-* [Alfred Time](https://github.com/godbout/alfred-time)
-* [Alfred Kat](https://github.com/godbout/alfred-kat)
-* [Alfred Ploi](https://github.com/godbout/alfred-ploi)
+* ~~Alfred Time~~ (getting updated)
+* ~~Alfred Kat~~ (getting updated)
+* [Alfred Ploi](https://github.com/godbout/alfred-ploi/tree/develop/src)
 
 Sorry 🥺️🥺️🥺️ more later, promise. Till then you can contact me if you need more details.
 

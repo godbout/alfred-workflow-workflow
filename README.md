@@ -41,7 +41,7 @@ Import the class:
 ```php
 require 'vendor/autoload.php';
 
-use Godbout\Alfred\Workflow\Workflow;
+use Godbout\Alfred\Workflow\BaseWorkflow;
 ```
 
 ## The Conventions

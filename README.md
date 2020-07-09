@@ -49,7 +49,7 @@ use Godbout\Alfred\Workflow\BaseWorkflow;
 Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to check the Alfred Workflows that are using this repo:
 
 * ~~Alfred Time~~ (getting updated)
-* ~~Alfred Kat~~ (getting updated)
+* [Alfred Kat](https://github.com/godbout/alfred-kat/tree/master/src)
 * [Alfred Ploi](https://github.com/godbout/alfred-ploi/tree/develop/src)
 
 Sorry 🥺️🥺️🥺️ more later, promise. Till then you can contact me if you need more details.

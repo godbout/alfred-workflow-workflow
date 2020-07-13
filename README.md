@@ -53,15 +53,38 @@ class Workflow extends BaseWorkflow
 
 ## The Conventions
 
-Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to go through different use cases together:
+Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to go through different use cases together. See the three cases below.
 
-### Alfred Ploi
+### Case 1: Alfred Ploi
 
-This is the most straightforward one. 
+This is the most straightforward Workflow. It doesn't override anything so it follows all the conventions, and only defines what it specifically needs.
 
-* [Alfred Time](https://github.com/godbout/alfred-time/tree/master/src)
-* [Alfred Kat](https://github.com/godbout/alfred-kat/tree/master/src)
-* [Alfred Ploi](https://github.com/godbout/alfred-ploi/tree/develop/src)
+1. The Workflow Class only needs to define the possible actions of the Workflow: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/Workflow.php
+2. The `Entrance` Menu Class defines what should be shown to the Alfred user when they start the Workflow: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/Menus/Entrance.php. `Entrance` is a convention for the first Menu of your Workflow (although you can name it whatever you want, but then you need to override the `currentMenu` method. See [Alfred Time](#case-3-alfred-time) below). All other Menus can be called whatever you want, as they will be defined as `args` of your Menu Items.
+3. The script called by Alfred only checks whether you're showing a Menu or calling an Action: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/app.php
 
-Sorry 🥺️🥺️🥺️ more later, promise. Till then you can contact me if you need more details.
+That's it. Just pass the right `args` and `variables` according to the conventions and it just works.
 
+Check the Alfred Ploi Workflow for the Workflow Skeleton: https://github.com/godbout/alfred-ploi/releases/tag/0.1.0 
+
+### Case 2: Alfred Kat
+
+This Workflow overrides only the `do` and `notify` methods.
+
+1. The `do` method needs a specific argument, so it is overriden: https://github.com/godbout/alfred-kat/tree/4.1.0/src/Workflow.php#L10
+2. The `notify` method needs to send different notifications, so it is overriden too: https://github.com/godbout/alfred-kat/tree/4.1.0/src/Workflow.php#L21
+3. The Menus (only one in this case) are not overriden: https://github.com/godbout/alfred-kat/tree/4.1.0/src/Menus/Entrance.php
+
+All the rest of the wiring is handled by this package, and the Alfred Workflow Skeleton: https://github.com/godbout/alfred-kat/releases/tag/4.1.0
+
+### Case 3: Alfred Time
+
+This is the hardest one. It overrides:
+
+1. The `do` method, passing an argument, sometimes: https://github.com/godbout/alfred-time/blob/3.0.0/src/Workflow.php#L37
+2. The `notify` method, for custom messages: https://github.com/godbout/alfred-time/blob/3.0.0/src/Workflow.php#L52
+3. The way Menus are loaded, because in this Workflow, Menus are arranged in specific (Timer Services) folders: https://github.com/godbout/alfred-time/blob/3.0.0/src/Workflow.php#L30
+
+And yet, even in this case, most of the code is just specific code for this particular Workflow. Most of the Alfred wiring is handled by this package, and the Workflow Skeleton: https://github.com/godbout/alfred-time/releases/tag/3.0.0
+
+### Args and Variables

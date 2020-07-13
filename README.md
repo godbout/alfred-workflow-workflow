@@ -36,17 +36,28 @@ composer require godbout/alfred-workflow-workflow
 
 ## Usage
 
-Import the class:
+Have your own `Workflow` class extend `BaseWorkflow`:
 
 ```php
-require 'vendor/autoload.php';
+<?php
+
+namespace Me\MyDummyWorkflow;
 
 use Godbout\Alfred\Workflow\BaseWorkflow;
+
+class Workflow extends BaseWorkflow
+{
+    // your Workflow actions go here
+}
 ```
 
 ## The Conventions
 
-Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to check the Alfred Workflows that are using this repo:
+Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to go through different use cases together:
+
+### Alfred Ploi
+
+This is the most straightforward one. 
 
 * [Alfred Time](https://github.com/godbout/alfred-time/tree/master/src)
 * [Alfred Kat](https://github.com/godbout/alfred-kat/tree/master/src)

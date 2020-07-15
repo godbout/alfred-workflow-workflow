@@ -34,23 +34,6 @@ Basically it's a set of base classes and some conventions and an Alfred Workflow
 composer require godbout/alfred-workflow-workflow
 ```
 
-## Usage
-
-Have your own `Workflow` class extend `BaseWorkflow`:
-
-```php
-<?php
-
-namespace Me\MyDummyWorkflow;
-
-use Godbout\Alfred\Workflow\BaseWorkflow;
-
-class Workflow extends BaseWorkflow
-{
-    // your Workflow actions go here
-}
-```
-
 ## The Conventions
 
 Well this is where it gets interesting, because i'm still not sure how to express it. Best currently is to go through different use cases together. See the three cases below.
@@ -59,11 +42,11 @@ Well this is where it gets interesting, because i'm still not sure how to expres
 
 This is the most straightforward Workflow. It doesn't override anything so it follows all the conventions, and only defines what it specifically needs.
 
-1. The Workflow Class only needs to define the possible actions of the Workflow: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/Workflow.php
-2. The `Entrance` Menu Class defines what should be shown to the Alfred user when they start the Workflow: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/Menus/Entrance.php. `Entrance` is a convention for the first Menu of your Workflow (although you can name it whatever you want, but then you need to override the `currentMenu` method. See [Alfred Time](#case-3-alfred-time) below). All other Menus can be called whatever you want, as they will be defined as `args` of your Menu Items.
+1. Your Workflow Class only needs to define the possible actions of the Workflow: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/Workflow.php
+2. Your `Entrance` Menu Class defines what should be shown to the Alfred user when they start the Workflow: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/Menus/Entrance.php. `Entrance` is a convention for the first Menu of your Workflow (although you can name it whatever you want, but then you need to override the `currentMenu` method. See [Alfred Time](#case-3-alfred-time) below). All other Menus can be called whatever you want, as they will be defined as `args` of your Menu Items.
 3. The script called by Alfred only checks whether you're showing a Menu or calling an Action: https://github.com/godbout/alfred-ploi/blob/0.1.0/src/app.php
 
-That's it. Just pass the right `args` and `variables` according to the conventions and it just works.
+That's it. Just pass the right [`args` and `variables`](#args-and-variables) according to the conventions and it just works.
 
 Check the Alfred Ploi Workflow for the Workflow Skeleton: https://github.com/godbout/alfred-ploi/releases/tag/0.1.0 
 
@@ -88,3 +71,57 @@ This is the hardest one. It overrides:
 And yet, even in this case, most of the code is just specific code for this particular Workflow. Most of the Alfred wiring is handled by this package, and the Workflow Skeleton: https://github.com/godbout/alfred-time/releases/tag/3.0.0
 
 ### Args and Variables
+
+So, a Workflow does two things: 
+1. show a Menu 
+2. do an Action
+
+How do you tell Alfred which Menu to show or which Action to run? Through the `args` and `variables`.
+
+For example, in your `Entrance` Menu Class, you show a menu:
+
+```php
+class Entrance extends BaseMenu
+{
+    public static function scriptFilter()
+    {
+        ScriptFilter::add(
+            Item::create()
+                ->title('Choose your Project')
+                ->arg('choose_project')
+        );
+
+        // ...
+    }
+```
+
+Alfred will then call your `src/Menus/ChooseProject.class` Class and its `scriptFilter` method, where you design what appears in your next Menu.
+
+Any `arg` that is different than `do` is taken as a Menu, loaded from the `src/Menus` folder (with the default convention, as see with [Alfred-Time](#case-3-alfred-time), you can override how/where the Menus are loaded).
+
+To do an Action:
+
+```php
+class SelectFile extends BaseMenu
+{
+    public static function scriptFilter()
+    {
+        ScriptFilter::add(
+            Item::create()
+                ->title('Delete File')
+                ->arg('do')
+                ->variable('action', 'deleteFile'),
+            Item::create()
+                ->title('Copy File')
+                ->arg('do')
+                ->variable('action', 'copyFile');
+        );
+
+        // ...
+    }
+}
+```
+
+For the first item, Alfred will call your `Workflow` Class and its `deleteFile` method. For the second item, the `copyFile` method.
+
+For a simple example, see the [Alfred Ploi Workflow source](https://github.com/godbout/alfred-ploi/tree/master/src) again.

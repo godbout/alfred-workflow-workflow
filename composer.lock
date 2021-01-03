@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22e77ff14ed79a35e91ba7e8b011fb59",
+    "content-hash": "3f0ee478f7da50cbde6ce3c03ad5fa35",
     "packages": [
         {
             "name": "godbout/alfred-workflow-scriptfilter",

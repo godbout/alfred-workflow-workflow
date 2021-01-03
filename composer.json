@@ -19,12 +19,13 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.4 || ^8.0",
         "godbout/alfred-workflow-scriptfilter": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5",
-        "codedungeon/phpunit-result-printer": "^0.27.0"
+        "codedungeon/phpunit-result-printer": "^0.30",
+        "phpunit/phpunit": "^9.5",
+        "scrutinizer/ocular": "^1.8"
     },
     "autoload": {
         "psr-4": {

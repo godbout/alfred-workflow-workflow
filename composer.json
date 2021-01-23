@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^7.3 || ^8.0",
         "godbout/alfred-workflow-scriptfilter": "^2.0"
     },
     "require-dev": {

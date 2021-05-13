@@ -73,7 +73,7 @@ abstract class BaseWorkflow implements Workflow
         self::$instance = null;
     }
 
-    final private function __clone()
+    private function __clone()
     {
     }
 }

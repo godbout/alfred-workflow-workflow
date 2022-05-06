@@ -19,11 +19,11 @@
         }
     ],
     "require": {
-        "php": "^7.3 || ^8.0",
-        "godbout/alfred-workflow-scriptfilter": "^2.0"
+        "php": "^8.0.2",
+        "godbout/alfred-workflow-scriptfilter": "^2.4"
     },
     "require-dev": {
-        "codedungeon/phpunit-result-printer": "^0.30",
+        "codedungeon/phpunit-result-printer": "^0.32",
         "phpunit/phpunit": "^9.5",
         "scrutinizer/ocular": "^1.8",
         "symfony/yaml": "^5"
